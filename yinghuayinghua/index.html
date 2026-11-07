@@ -1,0 +1,825 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>樱花樱花动漫专注动漫的门户网站-在线追番推荐_新番旧番合集</title>
+  <meta name="description" content="樱花樱花动漫专注动漫的门户网站，提供新番速递、经典旧番、剧场版合集与追番指南。这里聚合热门动漫推荐、深度解析、用户评论与更新动态，帮你快速找到想看的动漫。">
+  <meta name="keywords" content="樱花樱花动漫,专注动漫的门户网站,在线追番,新番推荐,动漫合集">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23f7b0c0'/%3E%3Cpath d='M16 5l3 8 8 1-6 6 2 9-7-4-7 4 2-9-6-6 8-1z' fill='%23fff6e8'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --sakura-pink: #f9d8e0;
+      --sakura-deep: #e88b9c;
+      --sakura-light: #fff5f7;
+      --text-main: #2d2a2e;
+      --text-soft: #5f5b60;
+      --card-bg: #ffffff;
+      --border-soft: #f0e0e6;
+      --shadow-sm: 0 6px 18px rgba(0,0,0,0.03), 0 2px 6px rgba(0,0,0,0.02);
+      --shadow-hover: 0 16px 30px rgba(0,0,0,0.06), 0 6px 12px rgba(0,0,0,0.03);
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+      --max-width: 1200px;
+      --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: #fefafb;
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* 导航 */
+    .nav-bar {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-soft);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .logo-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 1.35rem;
+      color: var(--sakura-deep);
+      letter-spacing: -0.3px;
+    }
+
+    .logo-icon {
+      width: 38px;
+      height: 38px;
+      background: radial-gradient(circle at 30% 30%, #ffdae2, #f3a7b8);
+      border-radius: 50% 50% 50% 8px;
+      transform: rotate(45deg);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-soft);
+    }
+
+    .nav-links a {
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--sakura-deep);
+      border-bottom-color: var(--sakura-deep);
+    }
+
+    /* Banner */
+    .hero {
+      background: linear-gradient(145deg, #fff0f3 0%, #ffe8ed 100%);
+      border-radius: var(--radius-lg);
+      margin: 32px 0 24px;
+      padding: 48px 42px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-text {
+      flex: 1 1 360px;
+      max-width: 620px;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: #3b2b31;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 span {
+      color: var(--sakura-deep);
+      border-bottom: 4px solid #fcd5df;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--text-soft);
+      margin-bottom: 24px;
+      max-width: 520px;
+    }
+
+    .search-box {
+      display: flex;
+      background: #fff;
+      border-radius: 60px;
+      padding: 6px 6px 6px 22px;
+      max-width: 440px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid #f5e1e7;
+      margin-bottom: 28px;
+    }
+
+    .search-box input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 0.95rem;
+      background: transparent;
+      color: var(--text-main);
+    }
+
+    .search-box input::placeholder {
+      color: #b9a6ae;
+    }
+
+    .search-box button {
+      background: var(--sakura-deep);
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 10px 26px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      cursor: default;
+      letter-spacing: 0.3px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-tags a {
+      background: #ffffffcc;
+      backdrop-filter: blur(4px);
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: #6b4b55;
+      border: 1px solid #f3d7df;
+      transition: 0.2s;
+    }
+
+    .hero-tags a:hover {
+      background: var(--sakura-deep);
+      color: white;
+      border-color: var(--sakura-deep);
+    }
+
+    .hero-visual {
+      flex: 0 0 180px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-petal {
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle at 30% 30%, #ffe4ec, #f8aebf);
+      border-radius: 60% 40% 50% 50% / 45% 50% 50% 55%;
+      box-shadow: 0 30px 30px -15px rgba(232, 139, 156, 0.3);
+      transform: rotate(12deg);
+    }
+
+    /* 通用section */
+    .section {
+      margin: 56px 0;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .section-header h2 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #2d2227;
+      border-left: 6px solid var(--sakura-deep);
+      padding-left: 18px;
+    }
+
+    .section-header .more-link {
+      color: var(--sakura-deep);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    /* 卡片网格 */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      padding: 22px 20px;
+      border: 1px solid var(--border-soft);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #392d32;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .tag {
+      background: #faeef1;
+      color: #b35f72;
+      padding: 4px 12px;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+
+    .card-desc {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      margin-bottom: 16px;
+      flex: 1;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: #a08993;
+      border-top: 1px dashed #f1dfe5;
+      padding-top: 12px;
+    }
+
+    /* 列表样式 */
+    .update-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .update-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      padding: 16px 22px;
+      border-radius: 100px;
+      border: 1px solid #f5e3e9;
+      box-shadow: var(--shadow-sm);
+      transition: 0.2s;
+    }
+
+    .update-item:hover {
+      background: #fff9fb;
+    }
+
+    .update-name {
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .update-badge {
+      font-size: 0.7rem;
+      background: var(--sakura-pink);
+      padding: 4px 10px;
+      border-radius: 30px;
+      color: #8f4a5b;
+      font-weight: 600;
+    }
+
+    .update-time {
+      font-size: 0.8rem;
+      color: #b39aa4;
+    }
+
+    /* 分类入口 */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 16px;
+    }
+
+    .cat-item {
+      background: #fff;
+      border-radius: 100px;
+      padding: 14px 10px;
+      text-align: center;
+      font-weight: 600;
+      color: #5b3e48;
+      border: 1px solid #f1dae1;
+      box-shadow: var(--shadow-sm);
+      transition: 0.2s;
+    }
+
+    .cat-item:hover {
+      background: var(--sakura-deep);
+      color: #fff;
+      border-color: var(--sakura-deep);
+    }
+
+    /* 深度解析 */
+    .deep-dive {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 42px 46px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-soft);
+    }
+
+    .deep-dive h2 {
+      font-size: 1.9rem;
+      margin-bottom: 28px;
+      font-weight: 700;
+    }
+
+    .deep-dive h2::before {
+      content: '🌸';
+      margin-right: 12px;
+      font-size: 1.8rem;
+    }
+
+    .deep-dive p {
+      margin-bottom: 18px;
+      color: #3e353a;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: #fff;
+      border-radius: var(--radius-sm);
+      border: 1px solid #f3dfe6;
+      padding: 20px 26px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-question {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+      color: #3d2b33;
+    }
+
+    .faq-answer {
+      color: var(--text-soft);
+      font-size: 0.94rem;
+    }
+
+    /* 评论 */
+    .comment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .comment-card {
+      background: #fff;
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      border: 1px solid #f3e0e7;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .comment-user {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #b56379;
+      margin-bottom: 10px;
+    }
+
+    .comment-text {
+      font-size: 0.9rem;
+      color: #4e3e45;
+    }
+
+    /* 资讯卡片 */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 22px;
+    }
+
+    .news-card {
+      background: #fff;
+      border-radius: var(--radius-md);
+      padding: 24px;
+      border: 1px solid #f2dce3;
+      box-shadow: var(--shadow-sm);
+      transition: 0.2s;
+    }
+
+    .news-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .news-date {
+      font-size: 0.75rem;
+      color: #a48391;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .news-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: #3b2a32;
+    }
+
+    .news-summary {
+      font-size: 0.88rem;
+      color: #73626b;
+    }
+
+    /* 页脚 */
+    .footer {
+      background: #ffffff;
+      border-top: 1px solid #f0dce3;
+      padding: 48px 0 32px;
+      margin-top: 70px;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      font-size: 0.86rem;
+      color: #886f7a;
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: #a48d97;
+    }
+
+    /* 响应式 */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 32px 24px;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero-visual {
+        display: none;
+      }
+      .deep-dive {
+        padding: 28px 22px;
+      }
+      .section-header h2 {
+        font-size: 1.5rem;
+      }
+      .nav-inner {
+        height: auto;
+        padding: 12px 0;
+      }
+      .nav-links {
+        gap: 8px 14px;
+        font-size: 0.85rem;
+      }
+      .update-item {
+        flex-wrap: wrap;
+        gap: 8px;
+        border-radius: 24px;
+        padding: 14px 18px;
+      }
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+  <!-- 导航 -->
+  <nav class="nav-bar">
+    <div class="container nav-inner">
+      <div class="logo-badge">
+        <span class="logo-icon"></span>
+        <span>樱花樱花动漫</span>
+      </div>
+      <div class="nav-links">
+        <a href="/#hot-anime">热门推荐</a>
+        <a href="/#latest-update">最新更新</a>
+        <a href="/#category">分类索引</a>
+        <a href="/#deep-analysis">深度解析</a>
+        <a href="/#faq">常见问题</a>
+        <a href="/#comments">用户评论</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- Banner 区域 -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>樱花樱花动漫专注动漫的门户网站</h1>
+        <p>追新番、补旧番、看剧场版，一站搞定。每天更新热门动漫资讯、深度解析与用户真实评价，帮你轻松找到下一部想看的作品。</p>
+        <div class="search-box">
+          <input type="text" placeholder="搜索动漫名称、声优或制作公司...">
+          <button>搜索</button>
+        </div>
+        <div class="hero-tags">
+          <a href="/#hot-anime">新番速递</a>
+          <a href="/#latest-update">今日更新</a>
+          <a href="/#category">热血战斗</a>
+          <a href="/#category">恋爱日常</a>
+          <a href="/#deep-analysis">编辑推荐</a>
+          <a href="/#faq">追番指南</a>
+          <a href="/#comments">社区热评</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-petal"></div>
+      </div>
+    </section>
+
+    <!-- 热门推荐 -->
+    <section id="hot-anime" class="section">
+      <div class="section-header">
+        <h2>热门动漫推荐</h2>
+        <span class="more-link">更多推荐 →</span>
+      </div>
+      <div class="grid-cards">
+        <div class="card">
+          <div class="card-title">《星尘幻境》</div>
+          <div class="card-tags"><span class="tag">奇幻</span><span class="tag">冒险</span><span class="tag">新番</span></div>
+          <div class="card-desc">本季度最大黑马，制作精良，世界观宏大。第6集神回引发热议，适合喜欢深度剧情的观众。</div>
+          <div class="card-meta"><span>热度 9.6w</span><span>更新至 08 集</span></div>
+        </div>
+        <div class="card">
+          <div class="card-title">《青春恋习曲》</div>
+          <div class="card-tags"><span class="tag">恋爱</span><span class="tag">校园</span><span class="tag">治愈</span></div>
+          <div class="card-desc">细腻的情感描写和清爽的画风，被观众称为“每周的精神慰藉”。适合喜欢慢节奏恋爱的你。</div>
+          <div class="card-meta"><span>热度 7.2w</span><span>更新至 10 集</span></div>
+        </div>
+        <div class="card">
+          <div class="card-title">《机甲纪元2077》</div>
+          <div class="card-tags"><span class="tag">科幻</span><span class="tag">战斗</span><span class="tag">3D</span></div>
+          <div class="card-desc">硬核机甲设计加高帧率战斗场面，剧情渐入佳境。第7集文戏武戏双爆发，值得追。</div>
+          <div class="card-meta"><span>热度 8.9w</span><span>更新至 07 集</span></div>
+        </div>
+        <div class="card">
+          <div class="card-title">《妖怪食堂》</div>
+          <div class="card-tags"><span class="tag">奇幻</span><span class="tag">美食</span><span class="tag">日常</span></div>
+          <div class="card-desc">人与妖共存的温馨单元剧，每集一道美食一个故事，治愈指数满分，适合下饭。</div>
+          <div class="card-meta"><span>热度 6.5w</span><span>全12集</span></div>
+        </div>
+        <div class="card">
+          <div class="card-title">《剑与羁绊》</div>
+          <div class="card-tags"><span class="tag">热血</span><span class="tag">战斗</span><span class="tag">长篇</span></div>
+          <div class="card-desc">经典王道热血漫改，打斗作画在线，角色成长线扎实。最新一集评分9.4，值得入坑。</div>
+          <div class="card-meta"><span>热度 11.2w</span><span>更新至 112 集</span></div>
+        </div>
+        <div class="card">
+          <div class="card-title">《推理少女事件簿》</div>
+          <div class="card-tags"><span class="tag">悬疑</span><span class="tag">推理</span><span class="tag">单元剧</span></div>
+          <div class="card-desc">本格推理加微百合元素，案件设计精巧，主角互动有趣。适合喜欢动脑的观众。</div>
+          <div class="card-meta"><span>热度 5.8w</span><span>更新至 09 集</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 最新更新 -->
+    <section id="latest-update" class="section">
+      <div class="section-header">
+        <h2>最新更新动态</h2>
+        <span class="more-link">查看全部 →</span>
+      </div>
+      <div class="update-list">
+        <div class="update-item"><span class="update-name"><span class="update-badge">新</span>《星尘幻境》第8集上线</span><span class="update-time">2026-11-07 10:30</span></div>
+        <div class="update-item"><span class="update-name"><span class="update-badge">热</span>《青春恋习曲》第10集更新</span><span class="update-time">2026-11-07 09:15</span></div>
+        <div class="update-item"><span class="update-name">《机甲纪元2077》第7集放出</span><span class="update-time">2026-11-06 22:00</span></div>
+        <div class="update-item"><span class="update-name">《妖怪食堂》第12集完结</span><span class="update-time">2026-11-06 20:40</span></div>
+        <div class="update-item"><span class="update-name"><span class="update-badge">新</span>《剑与羁绊》第112集更新</span><span class="update-time">2026-11-06 18:00</span></div>
+        <div class="update-item"><span class="update-name">《推理少女事件簿》第9集上线</span><span class="update-time">2026-11-06 15:20</span></div>
+        <div class="update-item"><span class="update-name">《异世界食堂》第5集更新</span><span class="update-time">2026-11-05 21:00</span></div>
+        <div class="update-item"><span class="update-name">《赛博朋克边缘行者》特别篇预告</span><span class="update-time">2026-11-05 14:10</span></div>
+      </div>
+    </section>
+
+    <!-- 分类入口 -->
+    <section id="category" class="section">
+      <div class="section-header">
+        <h2>按分类浏览</h2>
+        <span class="more-link">全部类型 →</span>
+      </div>
+      <div class="cat-grid">
+        <a href="/#hot-anime" class="cat-item">热血战斗</a>
+        <a href="/#hot-anime" class="cat-item">恋爱日常</a>
+        <a href="/#hot-anime" class="cat-item">奇幻冒险</a>
+        <a href="/#hot-anime" class="cat-item">科幻机甲</a>
+        <a href="/#hot-anime" class="cat-item">悬疑推理</a>
+        <a href="/#hot-anime" class="cat-item">治愈美食</a>
+        <a href="/#hot-anime" class="cat-item">校园青春</a>
+        <a href="/#hot-anime" class="cat-item">剧场版合集</a>
+      </div>
+    </section>
+
+    <!-- 深度解析 -->
+    <section id="deep-analysis" class="section">
+      <div class="deep-dive">
+        <h2>深度解析：为什么樱花樱花动漫值得常驻收藏</h2>
+        <p>在信息碎片化的时代，樱花樱花动漫专注动漫的门户网站致力于为动漫爱好者提供结构清晰、内容扎实的追番工具与阅读社区。无论你是刚入坑的新人，还是季度追十几部番的老宅，这里都能帮你节省筛选时间，快速定位到符合口味的作品。我们不仅聚合了当季新番的更新状态、制作阵容和用户评分，还保留了旧番经典专题与剧场版资料库，让补番和考古变得轻松。</p>
+        <p>动画类型的细分是樱花樱花动漫的一大特色。热血战斗、恋爱日常、奇幻冒险、科幻机甲、悬疑推理……每个大类下都有编辑撰写的类型看点与入坑指南。例如本季热门的《星尘幻境》被归类为“奇幻冒险+群像叙事”，我们会在深度解析里说明它的世界观设定、角色关系以及第6集神回的演出逻辑，帮助观众更好地理解剧情高潮。而对于《青春恋习曲》这类慢节奏恋爱番，我们则侧重分析情感递进与画面色调如何配合，让喜欢细腻表达的观众找到共鸣点。</p>
+        <p>在内容消费体验上，页面提供了多种浏览路径：你可以从最新更新列表直接点击进入，也可以根据分类入口找到感兴趣的题材，或者查看热门推荐中的编辑短评。每部作品卡片上标注了热度、更新进度和类型标签，方便快速决策。同时，我们保留了用户评论与社区讨论区域，你可以看到真实观众的追番感受，有时一条吐槽或安利就能让你决定是否入坑。樱花樱花动漫不是冷冰冰的数据库，而是一个有温度的动漫门户。</p>
+        <p>对于追更用户，我们的更新动态按时间倒序排列，并标记了“新”与“热”，让你不错过任何一部在追作品的放出。页面移动端适配良好，手机浏览时卡片自动调整宽度，阅读正文和评论都很舒适。如果你习惯用电脑，大屏下的网格布局能同时展示更多推荐内容。此外，深度解析文章会定期围绕热门作品展开，从制作公司、声优表现到原作改编取舍，提供多角度的视角补充。我们相信，好的动漫门户不仅能让你找到番，还能让你更懂番。</p>
+        <p>最后，樱花樱花动漫专注动漫的门户网站保持着对内容质量的坚持。每一条推荐都经过编辑筛选，避免标题党式的堆砌；FAQ部分收集了观众最常问的追番问题，比如“先看TV版还是剧场版”“某部番是否适合新人”“本季黑马是哪部”等，帮助降低入坑门槛。收藏本站，你获得的不仅是一个更新列表，更是一个持续生长的动漫知识库与同好社区。</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="section-header">
+        <h2>常见问题</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question">樱花樱花动漫主要提供什么内容？</div>
+          <div class="faq-answer">本站是一个动漫门户专题页，聚合新番推荐、经典旧番、剧场版合集、分类导航、深度解析和用户评论。你可以在这里查看当季热门作品、更新动态以及编辑撰写的入坑指南，方便快速找到想看的动漫。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">如何根据口味筛选动漫？</div>
+          <div class="faq-answer">页面顶部有分类入口，涵盖热血战斗、恋爱日常、奇幻冒险、科幻机甲、悬疑推理、治愈美食等类型。点击分类标签即可跳转到对应区域。同时热门推荐卡片上也会标注类型标签和简短看点，帮助你判断是否符合偏好。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">本季有哪些值得追的新番？</div>
+          <div class="faq-answer">根据目前的热度与编辑评价，《星尘幻境》《机甲纪元2077》《青春恋习曲》是综合表现突出的作品。《星尘幻境》以世界观和演出见长，《机甲纪元2077》适合硬核机甲迷，《青春恋习曲》则主打细腻情感。你可以参考热门推荐区的卡片详情做选择。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">页面上的更新状态多久同步一次？</div>
+          <div class="faq-answer">最新更新区域会按时间顺序展示近期上线的集数或动态，编辑会定期维护。如果你在追某部作品，可以留意该区域的标记，通常新集上线后会尽快更新。具体播出时间请以官方为准。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">没有看过前作，可以直接看剧场版吗？</div>
+          <div class="faq-answer">部分剧场版是独立故事，可以直接观看；但有些剧场版承接TV剧情，建议先补完相关篇章。在深度解析和推荐卡片中，我们会注明作品是否适合直接观看剧场版，你可以留意相关提示。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">如何参与评论或反馈？</div>
+          <div class="faq-answer">页面底部设有用户评论展示区，呈现近期社区用户的真实讨论。如果你有想分享的看法，可以通过页面底部的评论入口参与互动。我们鼓励友善讨论，共同维护良好的追番氛围。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 用户评论 -->
+    <section id="comments" class="section">
+      <div class="section-header">
+        <h2>用户热评</h2>
+        <span class="more-link">全部评论 →</span>
+      </div>
+      <div class="comment-grid">
+        <div class="comment-card"><div class="comment-user"><span>星野梦子</span><span>3天前</span></div><div class="comment-text">《星尘幻境》第6集真的封神，演出和配乐完美结合，看完立刻来翻解析。</div></div>
+        <div class="comment-card"><div class="comment-user"><span>板烧鸡腿</span><span>5天前</span></div><div class="comment-text">机甲2077的文戏比预想中好，主角成长线很扎实，不是单纯卖机设。</div></div>
+        <div class="comment-card"><div class="comment-user"><span>一只小樱花</span><span>7天前</span></div><div class="comment-text">分类很方便，直接找到恋爱日常，省得一个个翻。希望多加点冷门佳作。</div></div>
+        <div class="comment-card"><div class="comment-user"><span>追番不睡觉</span><span>2天前</span></div><div class="comment-text">青春恋习曲更新太慢了，但是画面实在太美，每集都截屏当壁纸。</div></div>
+        <div class="comment-card"><div class="comment-user"><span>老宅阿伟</span><span>8天前</span></div><div class="comment-text">妖怪食堂完结撒花，每集都看饿了，这种单元剧多来点。</div></div>
+        <div class="comment-card"><div class="comment-user"><span>雷姆的猫</span><span>4天前</span></div><div class="comment-text">剑与羁绊112集打斗作画又回来了，泪目，希望别停更。</div></div>
+        <div class="comment-card"><div class="comment-user"><span>推理控</span><span>6天前</span></div><div class="comment-text">推理少女事件簿的案件质量不错，虽然有些老梗但氛围到位。</div></div>
+        <div class="comment-card"><div class="comment-user"><span>夜行书生</span><span>1天前</span></div><div class="comment-text">页面加载挺快，手机看也不乱，适合蹲更新的时候刷一刷。</div></div>
+        <div class="comment-card"><div class="comment-user"><span>薄荷汽水</span><span>10天前</span></div><div class="comment-text">希望增加一个按声优筛选的功能，有时候为了声优追番。</div></div>
+        <div class="comment-card"><div class="comment-user"><span>小怪兽</span><span>9天前</span></div><div class="comment-text">热门推荐里那部《妖怪食堂》真的治愈，看完心情都好了。</div></div>
+        <div class="comment-card"><div class="comment-user"><span>三日月</span><span>12天前</span></div><div class="comment-text">深度解析写得挺用心的，不是简单剧情简介，有观点。</div></div>
+        <div class="comment-card"><div class="comment-user"><span>旋转的南瓜</span><span>5天前</span></div><div class="comment-text">评论区氛围不错，没有太多剧透，可以放心看。</div></div>
+      </div>
+    </section>
+
+    <!-- 相关资讯 -->
+    <section id="news" class="section">
+      <div class="section-header">
+        <h2>动漫资讯速递</h2>
+      </div>
+      <div class="news-grid">
+        <div class="news-card">
+          <div class="news-date">2026-11-07</div>
+          <div class="news-title">《星尘幻境》第8集播出后登上热搜</div>
+          <div class="news-summary">本集揭晓了主角身世的关键线索，观众讨论度爆棚，制作组发文感谢支持。</div>
+        </div>
+        <div class="news-card">
+          <div class="news-date">2026-11-06</div>
+          <div class="news-title">《机甲纪元2077》确认制作第二季</div>
+          <div class="news-summary">官方在直播活动中宣布续作决定，同时公开了新的视觉图，预计2027年播出。</div>
+        </div>
+        <div class="news-card">
+          <div class="news-date">2026-11-05</div>
+          <div class="news-title">《青春恋习曲》发布原声带试听</div>
+          <div class="news-summary">收录了剧中多首经典配乐和主题曲，粉丝可以提前感受细腻的音乐氛围。</div>
+        </div>
+        <div class="news-card">
+          <div class="news-date">2026-11-04</div>
+          <div class="news-title">《妖怪食堂》完结访谈：制作人谈续作可能</div>
+          <div class="news-summary">制作人表示如果反响热烈会考虑推出续篇，并感谢观众对单元剧形式的喜爱。</div>
+        </div>
+        <div class="news-card">
+          <div class="news-date">2026-11-03</div>
+          <div class="news-title">《推理少女事件簿》漫画原作进入新章</div>
+          <div class="news-summary">漫画最新话开启全新案件，动画版或将同步改编，粉丝期待值拉高。</div>
+        </div>
+        <div class="news-card">
+          <div class="news-date">2026-11-02</div>
+          <div class="news-title">樱花樱花动漫专题页新增剧场版资料库</div>
+          <div class="news-summary">网站更新了剧场版合集入口，收录近年热门动画电影信息，方便补完。</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-copy">
+        <p>© 2026 樱花樱花动漫专注动漫的门户网站 · 内容仅供交流参考</p>
+        <p style="margin-top:8px;">本站为动漫主题静态专题页，所有推荐与评论均为模拟展示，不提供在线播放。</p>
+      </div>
+      <div class="footer-links">
+        <a href="/#hot-anime">热门推荐</a>
+        <a href="/#latest-update">更新动态</a>
+        <a href="/#deep-analysis">深度解析</a>
+        <a href="/#faq">常见问题</a>
+        <a href="/#comments">用户评论</a>
+        <span>友情链接：动漫社区 · 新番速报 · 声优图鉴</span>
+      </div>
+    </div>
+  </footer>
+</body>
+          </html>
